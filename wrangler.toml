@@ -1,14 +1,18 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "rmp-conn"
-main = "src/index.js"
 compatibility_date = "2024-11-12"
 compatibility_flags = ["nodejs_compat"]
+
+main = "src/index.js"
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
 [observability]
 enabled = true
+
+# [build]
+# command = "esbuild src/index.js --bundle --outfile=dist/worker.js --format=esm"
 
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
